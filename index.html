@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Carta para Stefania</title>
+  <style>
+    :root {
+      --bg: #fff6f8;
+      --card: #ffffff;
+      --accent: #e76f8b;
+      --muted: #6b6b6b;
+    }
+    html,body { height:100%; margin:0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; background: radial-gradient(circle at 10% 10%, #fff0f2, var(--bg)); color:#333; }
+    .wrap { min-height:100%; display:flex; align-items:center; justify-content:center; padding:20px; box-sizing:border-box; }
+    .card { width:100%; max-width:720px; background:var(--card); border-radius:18px; box-shadow:0 8px 30px rgba(0,0,0,0.12); overflow:hidden; }
+    .hero { display:flex; flex-direction:column; align-items:center; padding:18px; gap:12px; }
+    .message { padding:18px 22px 28px; text-align:center; }
+    .title { font-family: "Brush Script MT", "Segoe Script", cursive; font-size:28px; color:var(--accent); margin:6px 0; }
+    .line { font-size:18px; color:#222; margin:8px 0; }
+    .phrase { background:linear-gradient(90deg, rgba(231,111,139,0.12), rgba(231,111,139,0.04)); padding:12px; border-radius:10px; font-weight:600; color:#222; margin:12px auto; display:inline-block; }
+    .poem { margin-top:12px; text-align:left; padding:12px; border-radius:10px; background:#fff8fb; border:1px solid rgba(231,111,139,0.03); }
+    .poem p { margin:8px 0; color:var(--muted); line-height:1.45; font-size:16px; }
+    .signature { margin-top:14px; text-align:right; padding-right:8px; color:var(--accent); font-weight:600; }
+    .audio-container { margin: 16px auto; width: 100%; max-width: 500px; }
+    .share-btn {
+      display: block;
+      width: 100%;
+      max-width: 320px;
+      margin: 0 auto 16px auto;
+      padding: 12px 0;
+      background: linear-gradient(90deg, var(--accent) 60%, #ffb6c1 100%);
+      color: #fff;
+      font-size: 18px;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(231,111,139,0.15);
+      text-align: center;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+      cursor: pointer;
+    }
+    .share-btn:hover {
+      background: linear-gradient(90deg, #ffb6c1 0%, var(--accent) 100%);
+      transform: scale(1.04);
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card" role="main" aria-label="Carta romántica para Stefania">
+      <div class="hero">
+        <div class="message">
+          <div class="title">Para mi amada Stefania</div>
+          <div class="line phrase">te amo mi pinchoncito — cuando te vea te compraré lo que tú me pidas</div>
+          
+          <div class="audio-container">
+            <!-- Enlace para compartir el video especial -->
+            <a href="?autoplay=1" class="share-btn" target="_blank">
+              🎬 Compartir video especial y reproducir automáticamente
+            </a>
+            <div id="video-container"></div>
+            <script>
+              // Detecta si la URL tiene el parámetro autoplay
+              const params = new URLSearchParams(window.location.search);
+              if (params.get('autoplay') === '1') {
+                document.getElementById('video-container').innerHTML = `
+                  <iframe width='100%' height='215' src='https://www.youtube.com/embed/p8iTSGiJxYc?autoplay=1'
+                    title='YouTube video player' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>
+                `;
+              } else {
+                // Video original si no hay parámetro
+                document.getElementById('video-container').innerHTML = `
+                  <iframe width='100%' height='215' src='https://www.youtube.com/embed/Yp2P6WM0UyE?rel=0&autoplay=1'
+                    title='YouTube song: Violetta - Tienes Todo' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>
+                `;
+              }
+            </script>
+          </div>
+          
+          <div class="poem" aria-label="Poema para Stefania">
+            <p>Stefania, nombre que en mi pecho enciende un fuego claro,</p>
+            <p>tu risa es la primavera que convierte tarde en milagro.</p>
+            <p>Camino a tu lado y el mundo sigue un pulso más sereno,</p>
+            <p>tu voz me hace valiente, tu mirada es mi terreno.</p>
+            <p>Stefania, en cada gesto guardas un cielo y una canción,</p>
+            <p>y yo prometo, corazón en mano, hacer eterna esta unión.</p>
+          </div>
+          <div class="signature">Con todo mi amor, <br>— Tu persona que te adora</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
